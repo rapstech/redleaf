@@ -2,25 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {UserModule} from './user/user.module';
-
+import {AgentModule} from './agent/agent.module';
+import {AdminModule} from './admin/admin.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './user/login/login.component';
+import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
+import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 const route : Routes = [
-  { path : '', component : LoginComponent},
-  
- 
-]
+  { path : '', redirectTo : 'user' , pathMatch: 'full'},
+  { path : 'user', component : LoginComponent},
+  { path : 'agent', component : AgentloginComponent},
+  { path : 'admin', component : AdminloginComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(route),UserModule
+    BrowserModule,RouterModule.forRoot(route),UserModule,AgentModule,AdminModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
