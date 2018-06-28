@@ -10,12 +10,14 @@ import { LoginComponent } from './user/login/login.component';
 import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { UsersignupComponent } from './user/usersignup/usersignup.component';
 
 const route : Routes = [
   { path : '', redirectTo : 'user' , pathMatch: 'full'},
   { path : 'user', component : LoginComponent},
   { path : 'agent', component : AgentloginComponent},
-  { path : 'admin', component : AdminloginComponent}
+  { path : 'admin', component : AdminloginComponent},
+  { path: 'usersignup', component: UsersignupComponent}
 ];
 
 @NgModule({
