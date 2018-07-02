@@ -11,13 +11,16 @@ import { AgentloginComponent } from './agent/agentlogin/agentlogin.component';
 import { AdminloginComponent } from './admin/adminlogin/adminlogin.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { UsersignupComponent } from './user/usersignup/usersignup.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 const route : Routes = [
-  { path : '', redirectTo : 'user' , pathMatch: 'full'},
+  { path : '', redirectTo : 'admin' , pathMatch: 'full'},
   { path : 'user', component : LoginComponent},
   { path : 'agent', component : AgentloginComponent},
   { path : 'admin', component : AdminloginComponent},
-  { path: 'usersignup', component: UsersignupComponent}
+  { path : 'usersignup', component: UsersignupComponent},
+  { path : 'admin', component: AdminloginComponent},
+  { path : 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
